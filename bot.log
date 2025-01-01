@@ -2319,3 +2319,349 @@ ValueError: invalid literal for int() with base 10: '6767bc5329ae229b960fb991'
 2024-12-22 13:19:39,091 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
 2024-12-22 13:19:49,263 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
 2024-12-22 13:19:59,438 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 22:57:07,291 - root - INFO - Shutdown requested
+2025-01-01 22:58:35,486 - root - ERROR - Error initializing MongoDB: SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67757b25ac7e56ef34fa83d9, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-01.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-02.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+Traceback (most recent call last):
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 51, in __init__
+    self.db.users.create_index("user_id", unique=True)
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2358, in create_index
+    return (self._create_indexes([index], session, **cmd_options))[0]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2211, in _create_indexes
+    with self._conn_for_writes(session, operation=_Op.CREATE_INDEXES) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 578, in _conn_for_writes
+    return self._database.client._conn_for_writes(session, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1666, in _conn_for_writes
+    server = self._select_server(writable_server_selector, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1649, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 398, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 376, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 283, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 333, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67757b25ac7e56ef34fa83d9, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-01.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-02.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+2025-01-01 22:58:35,488 - root - ERROR - Error: Failed to initialize MongoDB connection
+Traceback (most recent call last):
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 51, in __init__
+    self.db.users.create_index("user_id", unique=True)
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2358, in create_index
+    return (self._create_indexes([index], session, **cmd_options))[0]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2211, in _create_indexes
+    with self._conn_for_writes(session, operation=_Op.CREATE_INDEXES) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 578, in _conn_for_writes
+    return self._database.client._conn_for_writes(session, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1666, in _conn_for_writes
+    server = self._select_server(writable_server_selector, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1649, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 398, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 376, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 283, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 333, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67757b25ac7e56ef34fa83d9, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-01.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-02.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 1446, in <module>
+    bot = WorkoutBot()
+          ^^^^^^^^^^^^
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 65, in __init__
+    raise Exception("Failed to initialize MongoDB connection")
+Exception: Failed to initialize MongoDB connection
+2025-01-01 23:01:57,097 - root - ERROR - Error initializing MongoDB: SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67757befa29bc9900f5d6d05, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-01.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-02.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+Traceback (most recent call last):
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 56, in __init__
+    self.db.users.create_index("user_id", unique=True)
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2358, in create_index
+    return (self._create_indexes([index], session, **cmd_options))[0]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2211, in _create_indexes
+    with self._conn_for_writes(session, operation=_Op.CREATE_INDEXES) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 578, in _conn_for_writes
+    return self._database.client._conn_for_writes(session, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1666, in _conn_for_writes
+    server = self._select_server(writable_server_selector, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1649, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 398, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 376, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 283, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 333, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67757befa29bc9900f5d6d05, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-01.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-02.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+2025-01-01 23:01:57,099 - root - ERROR - Error: Failed to initialize MongoDB connection
+Traceback (most recent call last):
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 56, in __init__
+    self.db.users.create_index("user_id", unique=True)
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2358, in create_index
+    return (self._create_indexes([index], session, **cmd_options))[0]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\_csot.py", line 119, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 2211, in _create_indexes
+    with self._conn_for_writes(session, operation=_Op.CREATE_INDEXES) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\collection.py", line 578, in _conn_for_writes
+    return self._database.client._conn_for_writes(session, operation)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1666, in _conn_for_writes
+    server = self._select_server(writable_server_selector, session, operation)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\mongo_client.py", line 1649, in _select_server
+    server = topology.select_server(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 398, in select_server
+    server = self._select_server(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 376, in _select_server
+    servers = self.select_servers(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 283, in select_servers
+    server_descriptions = self._select_servers_loop(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Jacob\AppData\Roaming\Python\Python311\site-packages\pymongo\synchronous\topology.py", line 333, in _select_servers_loop
+    raise ServerSelectionTimeoutError(
+pymongo.errors.ServerSelectionTimeoutError: SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 67757befa29bc9900f5d6d05, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('cluster0-shard-00-00.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-00.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-01.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-01.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('cluster0-shard-00-02.cp1ki.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: cluster0-shard-00-02.cp1ki.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:992) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 1451, in <module>
+    bot = WorkoutBot()
+          ^^^^^^^^^^^^
+  File "C:\Users\Jacob\Desktop\workout_bot\workout_bot.py", line 70, in __init__
+    raise Exception("Failed to initialize MongoDB connection")
+Exception: Failed to initialize MongoDB connection
+2025-01-01 23:05:42,054 - root - INFO - Successfully connected to MongoDB
+2025-01-01 23:05:42,105 - root - INFO - Starting bot...
+2025-01-01 23:05:42,606 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getMe "HTTP/1.1 200 OK"
+2025-01-01 23:05:42,608 - apscheduler.scheduler - INFO - Scheduler started
+2025-01-01 23:05:42,609 - telegram.ext.Application - INFO - Application started
+2025-01-01 23:05:42,770 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/deleteWebhook "HTTP/1.1 200 OK"
+2025-01-01 23:05:43,200 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:05:43,914 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getFile "HTTP/1.1 200 OK"
+2025-01-01 23:05:44,239 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot7812648242%3AAAFxtUEahf198e1xDmKThdV12W37_JJVtNI/voice/file_9.oga "HTTP/1.1 200 OK"
+2025-01-01 23:05:44,614 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/sendMessage "HTTP/1.1 200 OK"
+2025-01-01 23:05:45,961 - root - ERROR - Transcription API error: 429 - {
+    "error": {
+        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+        "type": "insufficient_quota",
+        "param": null,
+        "code": "insufficient_quota"
+    }
+}
+
+2025-01-01 23:05:46,317 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/editMessageText "HTTP/1.1 200 OK"
+2025-01-01 23:05:53,374 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:06:03,518 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:06:13,662 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:06:23,804 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:06:34,045 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:06:44,184 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:06:54,346 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:07:04,519 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:07:14,659 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:07:24,806 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:07:34,947 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:07:45,094 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:07:55,237 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:08:05,376 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:08:15,520 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:08:25,683 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:08:35,838 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:08:45,977 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:08:56,122 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:09:06,263 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:09:16,402 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:09:26,539 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:09:36,684 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:09:46,862 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:09:57,000 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:10:07,146 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:10:17,292 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:10:27,434 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:10:37,581 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:10:47,723 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:10:57,864 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:11:08,040 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:11:18,179 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:11:28,334 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:11:38,473 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:11:48,633 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:11:52,541 - root - INFO - Shutdown requested
+2025-01-01 23:11:56,473 - root - INFO - Successfully connected to MongoDB
+2025-01-01 23:11:56,507 - root - INFO - Starting bot...
+2025-01-01 23:11:56,967 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getMe "HTTP/1.1 200 OK"
+2025-01-01 23:11:56,970 - apscheduler.scheduler - INFO - Scheduler started
+2025-01-01 23:11:56,971 - telegram.ext.Application - INFO - Application started
+2025-01-01 23:11:57,119 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/deleteWebhook "HTTP/1.1 200 OK"
+2025-01-01 23:12:07,565 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:12:08,604 - root - INFO - Shutdown requested
+2025-01-01 23:12:12,168 - root - INFO - Successfully connected to MongoDB
+2025-01-01 23:12:12,195 - root - INFO - Starting bot...
+2025-01-01 23:12:12,887 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getMe "HTTP/1.1 200 OK"
+2025-01-01 23:12:12,889 - apscheduler.scheduler - INFO - Scheduler started
+2025-01-01 23:12:12,890 - telegram.ext.Application - INFO - Application started
+2025-01-01 23:12:13,032 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/deleteWebhook "HTTP/1.1 200 OK"
+2025-01-01 23:12:23,511 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:12:24,429 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:12:25,408 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getFile "HTTP/1.1 200 OK"
+2025-01-01 23:12:25,567 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot7812648242%3AAAFxtUEahf198e1xDmKThdV12W37_JJVtNI/voice/file_10.oga "HTTP/1.1 200 OK"
+2025-01-01 23:12:25,926 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/sendMessage "HTTP/1.1 200 OK"
+2025-01-01 23:12:27,126 - root - ERROR - Transcription API error: 429 - {
+    "error": {
+        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+        "type": "insufficient_quota",
+        "param": null,
+        "code": "insufficient_quota"
+    }
+}
+
+2025-01-01 23:12:27,489 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/editMessageText "HTTP/1.1 200 OK"
+2025-01-01 23:12:34,624 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:12:44,785 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:12:54,952 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:13:00,543 - root - INFO - Shutdown requested
+2025-01-01 23:13:04,389 - root - INFO - Successfully connected to MongoDB
+2025-01-01 23:13:04,426 - root - INFO - Starting bot...
+2025-01-01 23:13:04,875 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getMe "HTTP/1.1 200 OK"
+2025-01-01 23:13:04,877 - apscheduler.scheduler - INFO - Scheduler started
+2025-01-01 23:13:04,878 - telegram.ext.Application - INFO - Application started
+2025-01-01 23:13:05,053 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/deleteWebhook "HTTP/1.1 200 OK"
+2025-01-01 23:13:15,488 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:13:16,681 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:13:17,521 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getFile "HTTP/1.1 200 OK"
+2025-01-01 23:13:17,710 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot7812648242%3AAAFxtUEahf198e1xDmKThdV12W37_JJVtNI/voice/file_11.oga "HTTP/1.1 200 OK"
+2025-01-01 23:13:18,066 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/sendMessage "HTTP/1.1 200 OK"
+2025-01-01 23:13:18,363 - root - ERROR - Transcription API error: 429 - {
+    "error": {
+        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+        "type": "insufficient_quota",
+        "param": null,
+        "code": "insufficient_quota"
+    }
+}
+
+2025-01-01 23:13:18,719 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/editMessageText "HTTP/1.1 200 OK"
+2025-01-01 23:13:26,861 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:13:37,010 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:13:47,155 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:13:57,299 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:14:07,443 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:14:17,596 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:14:27,744 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:14:37,888 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:14:48,035 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:14:58,192 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:15:08,357 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:15:18,499 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:15:28,716 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:15:38,859 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:15:49,064 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:15:59,210 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:16:09,353 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:16:19,496 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:16:29,670 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:16:39,816 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:16:49,960 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:00,108 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:10,251 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:20,395 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:30,539 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:33,681 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:34,392 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/sendMessage "HTTP/1.1 200 OK"
+2025-01-01 23:17:39,243 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:39,643 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/sendMessage "HTTP/1.1 200 OK"
+2025-01-01 23:17:49,434 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:17:59,579 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:18:09,720 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:18:19,864 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:18:30,029 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:18:40,176 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:18:50,317 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:19:00,460 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:19:10,653 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:19:10,832 - root - INFO - Shutdown requested
+2025-01-01 23:19:15,438 - root - INFO - Successfully connected to MongoDB
+2025-01-01 23:19:15,481 - root - INFO - Starting bot...
+2025-01-01 23:19:15,916 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getMe "HTTP/1.1 200 OK"
+2025-01-01 23:19:15,919 - apscheduler.scheduler - INFO - Scheduler started
+2025-01-01 23:19:15,920 - telegram.ext.Application - INFO - Application started
+2025-01-01 23:19:16,059 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/deleteWebhook "HTTP/1.1 200 OK"
+2025-01-01 23:19:26,505 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:19:36,672 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:19:41,729 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:19:42,720 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getFile "HTTP/1.1 200 OK"
+2025-01-01 23:19:42,877 - httpx - INFO - HTTP Request: GET https://api.telegram.org/file/bot7812648242%3AAAFxtUEahf198e1xDmKThdV12W37_JJVtNI/voice/file_12.oga "HTTP/1.1 200 OK"
+2025-01-01 23:19:43,239 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/sendMessage "HTTP/1.1 200 OK"
+2025-01-01 23:19:44,234 - root - ERROR - Transcription API error: 429 - {
+    "error": {
+        "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+        "type": "insufficient_quota",
+        "param": null,
+        "code": "insufficient_quota"
+    }
+}
+
+2025-01-01 23:19:44,596 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/editMessageText "HTTP/1.1 200 OK"
+2025-01-01 23:19:51,940 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:20:02,094 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:20:12,253 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:20:22,448 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:20:32,598 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:20:42,755 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:20:52,909 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:21:03,059 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:21:13,215 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:21:23,365 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:21:33,525 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:21:43,685 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:21:53,855 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:22:04,015 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7812648242:AAFxtUEahf198e1xDmKThdV12W37_JJVtNI/getUpdates "HTTP/1.1 200 OK"
+2025-01-01 23:22:12,399 - root - INFO - Shutdown requested
