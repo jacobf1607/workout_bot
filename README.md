@@ -23,15 +23,6 @@ A powerful Telegram bot for tracking workouts through voice messages, with featu
 - 🏆 Personal records tracking
 - 📈 Performance statistics and trends
 
-## Tech Stack
-
-- **Python 3.8+**
-- **MongoDB** for data storage
-- **OpenAI API** for voice transcription and workout parsing
-- **Telegram Bot API**
-- **Matplotlib** for data visualization
-- **Pandas** for data processing
-
 ## Prerequisites
 
 1. Python 3.8 or higher
