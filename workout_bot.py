@@ -25,7 +25,9 @@ load_dotenv()
 
 MONGODB_URI = os.getenv('MONGODB_URI')
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY_1')
+
+print(OPENAI_API_KEY)
 
 class WorkoutBot:
     def __init__(self):
